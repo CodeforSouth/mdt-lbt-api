@@ -1,2 +1,20 @@
+<<<<<<< HEAD
 config/
 node_modules/
+=======
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules
+>>>>>>> 2732a9e4a2d394e5a033e02c994b95ed6ce1dc35
