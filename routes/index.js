@@ -1,6 +1,6 @@
 // TODO: modularize resources
 // TODO: masquerade error from db for response
-// TODO: allow querying by sending body on GET ex. { accountNumber: 666, classcode: 101 }
+// TODO: allow querying by sending querystring on GET ex. { accountNumber: 666, classcode: 101 }
 
 
 var db = require('../config/db'),
