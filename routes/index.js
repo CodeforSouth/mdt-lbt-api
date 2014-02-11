@@ -154,7 +154,11 @@ exports.classCodes = function(req, res){
     runQuery(res, sql);
 };
 
-exports.geocode = function (req, res) {
-    var sql = ' SELECT * FROM geocode a '+
-              ' JOIN 2014_LBT_MiamiDade b on a.receipt = b.Receipt_Number '
-}
+exports.geoview = function (req, res) {
+    var sql = ' SELECT b.Receipt_Number, a.latitude, a.longitude FROM geocode a '+
+              ' JOIN 2014_LBT_MiamiDade b ON a.receipt = b.Receipt_Number '+
+              ' WHERE b.Category_Name like "%PHARMACY%"';
+
+    runQuery(res, sql);
+};
+

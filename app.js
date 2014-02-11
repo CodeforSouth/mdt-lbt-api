@@ -15,8 +15,8 @@ app.configure(function(){
     app.use(express.urlencoded());
     app.use(express.methodOverride());
     app.use(express.cookieParser('codingformiami2013'));
-    app.use(app.router);
     app.use(express.static(path.join(__dirname, '/public')));
+    app.use(app.router);
 });
 
 app.configure('development', function(){
@@ -24,6 +24,9 @@ app.configure('development', function(){
     app.use(express.errorHandler({ showStack: true, dumpExceptions: true }));
 });
 
+app.get('/mapit', function (req, res) {
+    res.render('index');
+});
 app.get('/', routes.index);
 app.get('/accounts', routes.accounts);
 app.get('/account/:actNum', routes.accountDetails);
@@ -31,7 +34,7 @@ app.get('/receipt/:recNum', routes.receiptDetails);
 app.get('/pbls', routes.pbls);
 app.get('/categorycodesnames', routes.categoryCodesNames);
 app.get('/classcodesnames', routes.classCodesNames);
-
+app.get('/geoview', routes.geoview);
 /*
 app.get('/categorynames', routes.categoryNames);
 app.get('/categorycodes', routes.categoryCodes);
