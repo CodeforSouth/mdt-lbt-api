@@ -12,9 +12,9 @@ function runQuery(res, sql, cb){
             connection.query(sql, function(err, rows, fields){
                 if(typeof(cb) !== 'function'){
                     if(!err){
-                        res.json(200, { status: 'OK', count: rows.length, data: rows, dte: _dte });
+                        res.jsonp(200, { status: 'OK', count: rows.length, data: rows, dte: _dte });
                     } else {
-                        res.json(400, { status: 'ERROR', error: err, dte: _dte });
+                        res.jsonp(400, { status: 'ERROR', error: err, dte: _dte });
                         console.log('RUN-QUERY__ERROR');
                         console.error(err);
                     };
@@ -63,15 +63,15 @@ function queryWithDetails(res, clmName, clmValue){
 
     runQuery(null, sql, function (err, rows, fields){
        if(err){
-            res.json(400, { status: 'ERROR', error: err, dte: _dte });
+            res.jsonp(400, { status: 'ERROR', error: err, dte: _dte });
             console.log('DTLs_ERROR');
             console.error('_DTLs_ERROR');
         } else if(rows != 'undefined'){
             if(rows.length == 0){
-                res.json(200, { status: 'OK', data: 'No records found', dte: _dte });
+                res.jsonp(200, { status: 'OK', data: 'No records found', dte: _dte });
             };
 
-            res.json(200, { status: 'OK', data: rows, dte: _dte });
+            res.jsonp(200, { status: 'OK', data: rows, dte: _dte });
         };
     });
 };
