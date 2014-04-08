@@ -1,0 +1,14 @@
+#!upstart                 
+description     "REST wrapper for Miami Dade LBT Data"
+author          "LBT_API by Juan Lopez/CodeForMiami - 2014"
+ 
+#env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ 
+respawn
+start on runlevel [23]
+stop on shutdown
+ 
+script
+    export DISPLAY=:1
+    exec nodemon /home/onel0p3z/TaxData/app.js >> /home/onel0p3z/TaxData/logs/app.log
+end script

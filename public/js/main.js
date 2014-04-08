@@ -27,7 +27,7 @@ angular.module('app', [])
                     //console.log(value.zip, value.latlon);
                     var marker = L.marker([ value.latitude, value.longitude ]);
                     $window.map.addLayer(marker);
-                    marker.bindPopup('<a href="http://miamicode.org:8080/receipt/' + value.Receipt_Number + '">Go to Receipt '+ value.Receipt_Number +'</a>');
+                    marker.bindPopup('<a href="http://lbt.miamicode.org/receipt/' + value.Receipt_Number + '">Go to Receipt '+ value.Receipt_Number +'</a>');
                     //marker.openPopup();
                 });
                 /*

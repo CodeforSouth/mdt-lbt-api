@@ -25,6 +25,7 @@ function runQuery(res, sql, cb){
                 connection.release();
             });
         } else {
+            console.log('DB::ConnectionError::', err);
             throw err;
             //next();
         };
@@ -162,3 +163,21 @@ exports.geoview = function (req, res) {
     runQuery(res, sql);
 };
 
+exports.zipcodes = function (req, res) {
+    var sql = ' SELECT DISTINCT Mailing_Address_ZIP '+
+              ' FROM 2014_LBT_MiamiDade ';
+
+    runQuery(res, sql);
+};
+
+exports.unpaid = function (req, res) {
+    var limit = db.escape(req.query.limit) == 'NULL'? 10 : db.escape(parseInt(req.query.limit)),
+        skip = db.escape(req.query.skip) == 'NULL'? 0 : db.escape(parseInt(req.query.skip)),
+        sql = ' SELECT * '+
+              ' FROM 2014_LBT_MiamiDade '+
+              ' WHERE Account_Status = "Active" AND Balance_Status = "Unpaid" '+
+              ' LIMIT ' + skip + ' , ' + limit;
+
+
+    runQuery(res, sql);
+};

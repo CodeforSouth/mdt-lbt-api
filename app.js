@@ -5,8 +5,8 @@ var express = require('express'),
 
 var app = express();
 
-app.configure(function(){
-    app.set('port', process.env.PORT || 8080);
+app.configure(function () {
+    app.set('port', 82);
     app.set('views', path.join(__dirname, '/views'));
     app.set('view engine', 'jade');
     app.use(express.favicon());
@@ -35,6 +35,8 @@ app.get('/pbls', routes.pbls);
 app.get('/categorycodesnames', routes.categoryCodesNames);
 app.get('/classcodesnames', routes.classCodesNames);
 app.get('/geoview', routes.geoview);
+app.get('/zipcodes', routes.zipcodes);
+app.get('/unpaid', routes.unpaid);
 /*
 app.get('/categorynames', routes.categoryNames);
 app.get('/categorycodes', routes.categoryCodes);
@@ -42,17 +44,17 @@ app.get('/classnames', routes.classNames);
 app.get('/classcodes', routes.classCodes);
 */
 
-app.get('*', function(req, res){
-    var logged = (new Date).toISOString() + ' --> ' + req.ip + ' to ' + req.url + '\n\r';
-    fs.appendFile('logs/request.log', logged, function(err){
-        if(!err){
+app.get('*', function (req, res) {
+    var logged = (new Date()).toISOString() + ' --> ' + req.ip + ' to ' + req.url + '\n\r';
+    fs.appendFile('logs/request.log', logged, function (err) {
+        if (!err) {
             res.json(404, { 
                 'error': 'not found', 
                 'ip': req.ip, 
-                'date': (new Date).toISOString(),
+                'date': (new Date()).toISOString(),
                 'url': req.url 
             });
-        };
+        }
     });
 });
 
