@@ -10,7 +10,7 @@ This is a REST API wrapper for the CSV file of Local Business Tax receipts given
 
 ### Implementation:
 As of 10 February 2014, the API can be accessed through the following URL:
-http://miamicode.org:8080/
+http://lbt.miamicode.org/
 
 The API is formatted in JSON. And is available in read access (GET) only.
 
@@ -22,7 +22,7 @@ All endpoints can take a limit and skip in query string. ie: ?limit=10&skip=0
 ### Commands
 /accounts
 Returns all account numbers that exist in the database.
-Sample URL: http://miamicode.org:8080/accounts
+Sample URL: http://lbt.miamicode.org/accounts
 ```
 {
   "status": "OK",
@@ -41,7 +41,7 @@ Sample URL: http://miamicode.org:8080/accounts
 
 #### /account/:actNum
 Returns a particular business result via account number where :actNum is the account
-Sample URL: http://miamicode.org:8080/account/6231450
+Sample URL: http://lbt.miamicode.org/account/6231450
 ```
 {
   "status": "OK",
@@ -83,7 +83,7 @@ Sample URL: http://miamicode.org:8080/account/6231450
 
 #### /receipt/:recNum 
 Returns a particular business result via receipt number where :recNum is the receipt
-Sample URL: http://miamicode.org:8080/receipt/6666052
+Sample URL: http://lbt.miamicode.org/receipt/6666052
 ```
 {
   "status": "OK",
@@ -125,7 +125,7 @@ Sample URL: http://miamicode.org:8080/receipt/6666052
 
 #### /pbls
 Returns a list of codes assigned to physical business locations
-http://miamicode.org:8080/pbls 
+http://lbt.miamicode.org/pbls 
 ```
 {
   "status": "OK",
@@ -144,7 +144,7 @@ http://miamicode.org:8080/pbls
 
 #### /categorycodesnames
 Returns category codes & names
-http://miamicode.org:8080/categorycodesnames
+http://lbt.miamicode.org/categorycodesnames
 ```
 {
   "status": "OK",
@@ -165,7 +165,7 @@ http://miamicode.org:8080/categorycodesnames
 
 #### /classcodesnames
 Returns class codes & names
-http://miamicode.org:8080/classcodesnames
+http://lbt.miamicode.org/classcodesnames
 ```
 {
   "status": "OK",
@@ -189,4 +189,4 @@ http://miamicode.org:8080/classcodesnames
 ```
 
 ### Sample Apps with APIs:
-http://miamicode.org:8080/mapit - maps all businesses who are on the Local Business Tax with a category code of "Pharmacy" list to a map of Miami-Dade County.
+http://lbt.miamicode.org/mapit - maps all businesses who are on the Local Business Tax with a category code of "Pharmacy" list to a map of Miami-Dade County.
